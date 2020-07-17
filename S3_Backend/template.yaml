@@ -12,7 +12,7 @@ Resources:
     Properties:
       AccessControl: PublicRead
       WebsiteConfiguration:
-        IndexDocument: Resume.html
+        IndexDocument: index.html
         ErrorDocument: 404.html
       BucketName: letscloud.ga
       CorsConfiguration:
@@ -84,4 +84,4 @@ Resources:
 Outputs:
   MyEndPoints:
     Description: "The API endpoint URL"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/index/" # pay attention to /index path
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/index/" 
