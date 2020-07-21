@@ -24,7 +24,7 @@ jobs:
     - name: Unittest Lambda and DynamoDB
       run: | 
          cd S3_Backend/Lambda
-         python Lambda/test.py
+         python test.py
 
     # AWS
     - name: Configure AWS Credentials
