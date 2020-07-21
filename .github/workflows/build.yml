@@ -22,7 +22,9 @@ jobs:
         pip install -r "requirements.txt"
         pip install moto boto3
     - name: Unittest Lambda and DynamoDB
-      run: python Lambda/index.py
+      run: | 
+         cd S3_Backend/Lambda
+         python Lambda/test.py
 
     # AWS
     - name: Configure AWS Credentials
