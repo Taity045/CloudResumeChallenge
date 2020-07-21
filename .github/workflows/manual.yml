@@ -23,7 +23,7 @@ jobs:
         pip install moto boto3
     - name: Unittest Lambda and DynamoDB
       run: | 
-         cd Lambda/
+         cd S3_Backend/Lambda
          python test.py
     # AWS
     - name: Configure AWS Credentials
