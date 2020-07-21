@@ -48,7 +48,7 @@ jobs:
     - name: SAM Deploy
       uses: TractorZoom/sam-cli-action@master
       with:
-        sam_command: deploy -t template.yaml\
+        sam_command: deploy -t S3_Backend/aws-sam/build/template.yaml\
           --arn:aws:cloudformation:us-east-1:451545210696:stack/Dev/66fbb160-c755-11ea-adfe-0e3038696552\
           --parameter-overrides ParameterKey=S3BucketName, ParameterKey=DynamoDBTableName \
           --debug \
