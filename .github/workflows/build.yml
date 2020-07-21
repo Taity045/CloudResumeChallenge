@@ -1,4 +1,4 @@
-name: Deploy SAM template
+name: "Deploy SAM Stack to AWS"
 on:
   push:
     branches:
@@ -43,11 +43,11 @@ jobs:
     - name: SAM Deploy
       uses: TractorZoom/sam-cli-action@master
       with:
-        sam_command: "deploy -t template.yaml \
+        sam_command: deploy -t template.yaml\
           --arn:aws:cloudformation:us-east-1:451545210696:stack/Dev/66fbb160-c755-11ea-adfe-0e3038696552\
           --parameter-overrides ParameterKey=S3BucketName, ParameterKey=DynamoDBTableName \
           --debug \
-          --no-fail-on-empty-changeset"
+          --no-fail-on-empty-changeset
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
