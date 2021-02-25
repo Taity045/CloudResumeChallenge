@@ -71,7 +71,10 @@ Resources:
           Properties:
             Path: /index
             Method: get
-        
+      AutoPublishAlias: live
+
+      DeploymentPrefence:
+        Type: Canary10Percent10Minutes  
        
   VisitorsCounterDynamodb: 
     Type: AWS::Serverless::SimpleTable
