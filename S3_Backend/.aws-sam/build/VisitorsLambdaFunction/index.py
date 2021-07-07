@@ -1,13 +1,22 @@
 import boto3
 import os
 import json
+import uuid
+import datetime 
+
 
 
 def lambda_handler(event, context):
   
   dynamodb = boto3.resource('dynamodb')
 
-  table = dynamodb.Table('Dev-VisitorsCounterDynamodb-1AKIIFZ6S9KBU')
+  # table = dynamodb.Table('Dev-VisitorsCounterDynamodb-1AKIIFZ6S9KBU')
+
+  table = os.environ['dynamodb']
+
+#   USERS_TABLE = os.environ['USERS_TABLE']
+# client = boto3.client('dynamodb')
+
 
   res = table.update_item(
     Key={"id": "numberofVisitors"},

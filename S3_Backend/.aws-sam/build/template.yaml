@@ -13,7 +13,7 @@ Resources:
     Properties:
       AccessControl: PublicRead
       WebsiteConfiguration:
-        IndexDocument: Resume.html
+        IndexDocument: index.html
         ErrorDocument: 404.html
       BucketName: letscloud.ga
       CorsConfiguration:
@@ -59,7 +59,7 @@ Resources:
     Properties:
       CodeUri: VisitorsLambdaFunction
       Handler: index.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.8
       Role:
         Fn::GetAtt:
         - LambdaFunctionRole
@@ -70,6 +70,7 @@ Resources:
           Properties:
             Path: /index
             Method: get
+      AutoPublishAlias: live
   VisitorsCounterDynamodb:
     Type: AWS::Serverless::SimpleTable
     Properties:

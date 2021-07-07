@@ -26,9 +26,7 @@ Resources:
             AllowedHeaders: 
               - "*"
               
-
-               
-              
+            
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -63,7 +61,7 @@ Resources:
     Properties:
       CodeUri: Lambda/
       Handler: index.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.8
       Role: !GetAtt LambdaFunctionRole.Arn 
       Events:
         VisitorCounterEndpoint:
@@ -73,8 +71,8 @@ Resources:
             Method: get
       AutoPublishAlias: live
 
-      DeploymentPrefence:
-        Type: Canary10Percent10Minutes  
+      # DeploymentPrefence:
+      #   Type: Canary10Percent10Minutes  
        
   VisitorsCounterDynamodb: 
     Type: AWS::Serverless::SimpleTable
